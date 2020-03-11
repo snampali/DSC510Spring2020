@@ -1,0 +1,6 @@
+
+#DSC510 Introduction to Programming
+#Harsimar Mangat
+
+hw="hello world"
+print(hw)
