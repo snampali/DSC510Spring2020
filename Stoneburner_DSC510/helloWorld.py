@@ -1,8 +1,0 @@
-print("===========================================")
-print("Hello World")
-print("===========================================")
-print("The best laid plans of mice and men")
-print("go oft awry and leave naught but")
-print("pain and suffering for promised joy")
-print("**** Robert Burns ****")
-print("===========================================")
