@@ -25,4 +25,19 @@ cable_price = default_price
 # calculate customer price feet * default price
 installation_cost = cable_feet * cable_price
 
-
+# receipt display
+print('\r')
+print('\r')
+print('------------------------------------------------------')
+print('Receipt\r')
+print('Blasdell\'s IT Services\r')
+print('\r')
+print('\r')
+print('Company: ', company_name)
+print('Fiber amount (in feet)', cable_feet)
+print('Cable price: $ ', cable_price)
+print('\r')
+print('Installation total: $', installation_cost)
+print('\r')
+print('------------------------------------------------------')
+# end program
