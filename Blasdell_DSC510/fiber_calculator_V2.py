@@ -35,7 +35,7 @@ elif cable_feet > 100.0:
     cable_price = 0.80
 
 # calculate customer price feet * default price
-installation_cost = format(cable_feet * cable_price, '.2f')
+installation_cost = cable_feet * cable_price
 
 # receipt display
 print('\r')
@@ -49,7 +49,7 @@ print('Company: ', company_name)
 print('Fiber optic cable amount (in feet)', cable_feet)
 print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
 print('\r')
-print('Installation total: $', installation_cost)
+print('Installation total: $', format(installation_cost, '.2f'))
 print('\r')
 print('------------------------------------------------------')
 # end program
