@@ -4,6 +4,10 @@
 # name: Blaine Blasdell
 # description: Customer Fiber Optic cable calculator
 
+# Get Today's date for receipt
+import datetime
+today_date = datetime.datetime.today()
+
 # welcome message
 print('Welcome to Blasdell\'s IT Services')
 print('\r')
@@ -37,12 +41,22 @@ elif cable_feet > 100.0:
 # calculate customer price feet * default price
 installation_cost = cable_feet * cable_price
 
+# calculate VA State (Prince William County) sales tax and total cost
+sales_tax = 0.053
+sales_tax_cost = installation_cost * sales_tax
+total_cost = sales_tax_cost + installation_cost
+
+
+
+
+
 # receipt display
 print('\r')
 print('\r')
 print('------------------------------------------------------')
-print('Blasdell\'s IT Services\r')
-print('Receipt\r')
+print('            Blasdell\'s IT Services\r')
+print('                    Receipt\r')
+print('                  ', today_date.strftime("%m/%d/%y"))
 print('\r')
 print('\r')
 print('Company: ', company_name)
@@ -50,6 +64,8 @@ print('Fiber optic cable amount (in feet)', cable_feet)
 print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
 print('\r')
 print('Installation total: $', format(installation_cost, '.2f'))
+print('Sales Tax: $', format(sales_tax, '.3f'))
+print('Total Cost (including Tax): ', format(total_cost, '.2f'))
 print('\r')
 print('------------------------------------------------------')
 # end program
