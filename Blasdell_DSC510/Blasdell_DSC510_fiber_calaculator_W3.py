@@ -1,5 +1,5 @@
 # course: DSC510
-# assignment: 2.1
+# assignment: 3.1
 # date: 3/17/20
 # name: Blaine Blasdell
 # description: Customer Fiber Optic cable calculator
