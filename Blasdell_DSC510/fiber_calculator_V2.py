@@ -19,53 +19,72 @@ company_name = input('Please enter your company name: ')
 print('\r')
 
 # input customer's cable need
-cable_feet: float = float(input('Please enter the amount of fiber you need (in feet): '))
+cable_feet = input('Please enter the amount of fiber you need (in feet): ')
+
 print('\r')
 
-# set default cable price
-default_price = 0.87
-cable_price = default_price
+# Check to ensure a cable amount is entered (check for null)
+if cable_feet:
 
-# calculate bulk discount
-# > 100 feet = 0.80
-# > 250 feet = 0.70
-# > 500 feel = 0.50
+    # convert input string to a float
+    cable_feet_float = float(cable_feet)
 
-if cable_feet > 500.0:
-    cable_price = 0.50
-elif cable_feet > 250.0:
-    cable_price = 0.70
-elif cable_feet > 100.0:
-    cable_price = 0.80
+    # check to ensure numeric amount is greater then zero
+    if cable_feet_float > 0:
 
-# calculate customer price feet * default price
-installation_cost = cable_feet * cable_price
+        #    set default cable price
+        default_price = 0.87
+        cable_price = default_price
 
-# calculate VA State (Prince William County) sales tax and total cost
-sales_tax = 0.053
-sales_tax_cost = installation_cost * sales_tax
-total_cost = sales_tax_cost + installation_cost
+        # calculate bulk discount
+        # > 100 feet = 0.80
+        # > 250 feet = 0.70
+        # > 500 feel = 0.50
+        if cable_feet_float > 500.0:
+            cable_price = 0.50
+        elif cable_feet_float > 250.0:
+            cable_price = 0.70
+        elif cable_feet_float > 100.0:
+            cable_price = 0.80
 
+        # calculate customer price feet * default price
+        installation_cost = cable_feet_float * cable_price
 
+        # calculate VA State (Prince William County) sales tax and total cost
+        sales_tax = 0.053
+        sales_tax_cost = installation_cost * sales_tax
+        total_cost = sales_tax_cost + installation_cost
 
-
-
-# receipt display
-print('\r')
-print('\r')
-print('------------------------------------------------------')
-print('            Blasdell\'s IT Services\r')
-print('                    Receipt\r')
-print('                  ', today_date.strftime("%m/%d/%y"))
-print('\r')
-print('\r')
-print('Company: ', company_name)
-print('Fiber optic cable amount (in feet)', cable_feet)
-print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
-print('\r')
-print('Installation total: $', format(installation_cost, '.2f'))
-print('Sales Tax: $', format(sales_tax, '.3f'))
-print('Total Cost (including Tax): ', format(total_cost, '.2f'))
-print('\r')
-print('------------------------------------------------------')
+        # receipt display
+        print('\r')
+        print('\r')
+        print('------------------------------------------------------------')
+        print('                  Blasdell\'s IT Services\r')
+        print('                          Receipt\r')
+        print('                         ', today_date.strftime("%m/%d/%y"))
+        print('\r')
+        print('\r')
+        print('Company: ', company_name)
+        print('Fiber optic cable amount (in feet)', format(cable_feet_float, '.2f'))
+        print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
+        print('\r')
+        print('Installation total: $', format(installation_cost, '.2f'))
+        print('Sales Tax: $', format(sales_tax, '.3f'))
+        print('Total Cost (including Tax): $', format(total_cost, '.2f'))
+        print('\r')
+        print('------------------------------------------------------------')
+    else:
+        # Print error is number is not greater then zero
+        print('\r')
+        print('\r')
+        print('Error')
+        print('Please enter a valid amount of fiber cable (1 - 1,000,000)')
+        print('\r')
+else:
+    # Print error if no value entered for cable
+    print('\r')
+    print('\r')
+    print('Error')
+    print('Please enter a valid amount of fiber cable (1 - 1,000,000)')
+    print('\r')
 # end program
