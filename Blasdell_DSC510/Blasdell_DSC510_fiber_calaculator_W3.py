@@ -69,7 +69,7 @@ if cable_feet:
         print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
         print('\r')
         print('Installation total: $', format(installation_cost, '.2f'))
-        print('Sales Tax: $', format(sales_tax, '.3f'))
+        print('VA Sales Tax: $', format(sales_tax, '.3f'))
         print('Total Cost (including Tax): $', format(total_cost, '.2f'))
         print('\r')
         print('------------------------------------------------------------')
