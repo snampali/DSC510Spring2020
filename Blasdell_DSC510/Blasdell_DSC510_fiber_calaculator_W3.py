@@ -46,6 +46,8 @@ if cable_feet:
             cable_price = 0.70
         elif cable_feet_float > 100.0:
             cable_price = 0.80
+        else:
+            cable_price = default_price
 
         # calculate customer price feet * default price
         installation_cost = cable_feet_float * cable_price
