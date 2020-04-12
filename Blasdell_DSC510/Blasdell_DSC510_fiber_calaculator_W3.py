@@ -6,7 +6,14 @@
 
 # Get Today's date for receipt
 import datetime
+
 today_date = datetime.datetime.today()
+
+
+# Function to calculate the price based on two inputs feet & price
+def calculate_cost(cable_ft, cable_pr):
+    return cable_ft * cable_pr
+
 
 # welcome message
 print('Welcome to Blasdell\'s IT Services')
@@ -46,9 +53,12 @@ if cable_feet:
             cable_price = 0.70
         elif cable_feet_float > 100.0:
             cable_price = 0.80
+        else:
+            cable_price = default_price
 
         # calculate customer price feet * default price
-        installation_cost = cable_feet_float * cable_price
+        # installation_cost = cable_feet_float * cable_price
+        installation_cost = calculate_cost(cable_feet_float, cable_price)
 
         # calculate VA State (Prince William County) sales tax and total cost
         sales_tax = 0.053
@@ -69,7 +79,7 @@ if cable_feet:
         print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
         print('\r')
         print('Installation total: $', format(installation_cost, '.2f'))
-        print('Sales Tax: $', format(sales_tax, '.3f'))
+        print('VA Sales Tax: $', format(sales_tax, '.3f'))
         print('Total Cost (including Tax): $', format(total_cost, '.2f'))
         print('\r')
         print('------------------------------------------------------------')

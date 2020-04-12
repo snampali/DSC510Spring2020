@@ -1,12 +1,23 @@
 # course: DSC510
-# assignment: 2.1
-# date: 3/17/20
+# assignment: 4.1
+# date: 3/30/20
 # name: Blaine Blasdell
 # description: Customer Fiber Optic cable calculator
 
 # Get Today's date for receipt
 import datetime
+
 today_date = datetime.datetime.today()
+
+
+# Function to calculate the price based on two inputs feet & price
+def calculate_cost(cable_ft, cable_pr):
+    return cable_ft * cable_pr
+
+
+def state_sales_tax(amount, tax):  # Function to calculate the price based on two inputs feet & price
+    return amount * tax
+
 
 # welcome message
 print('Welcome to Blasdell\'s IT Services')
@@ -46,13 +57,16 @@ if cable_feet:
             cable_price = 0.70
         elif cable_feet_float > 100.0:
             cable_price = 0.80
+        else:
+            cable_price = default_price
 
         # calculate customer price feet * default price
-        installation_cost = cable_feet_float * cable_price
+        # installation_cost = cable_feet_float * cable_price
+        installation_cost = calculate_cost(cable_feet_float, cable_price)  # using new function call passing cable feet and price
 
         # calculate VA State (Prince William County) sales tax and total cost
         sales_tax = 0.053
-        sales_tax_cost = installation_cost * sales_tax
+        sales_tax_cost = state_sales_tax(sales_tax, installation_cost)  # use new function to calculate sales tax passing sales tax amount and installation cost
         total_cost = sales_tax_cost + installation_cost
 
         # receipt display
@@ -61,7 +75,7 @@ if cable_feet:
         print('------------------------------------------------------------')
         print('                  Blasdell\'s IT Services\r')
         print('                          Receipt\r')
-        print('                         ', today_date.strftime("%m/%d/%y"))
+        print('                        ', today_date.strftime("%m/%d/%y"))
         print('\r')
         print('\r')
         print('Company: ', company_name)
@@ -69,22 +83,22 @@ if cable_feet:
         print('Fiber Cable installation price: $ ', format(cable_price, '.2f'))
         print('\r')
         print('Installation total: $', format(installation_cost, '.2f'))
-        print('Sales Tax: $', format(sales_tax, '.3f'))
+        print('VA Sales Tax: $', format(sales_tax, '.3f'))
         print('Total Cost (including Tax): $', format(total_cost, '.2f'))
         print('\r')
+        print('\r')
+        print('                         End Receipt')
         print('------------------------------------------------------------')
     else:
         # Print error is number is not greater then zero
         print('\r')
-        print('\r')
-        print('Error')
+        print('*** Error ***')
         print('Please enter a valid amount of fiber cable (1 - 1,000,000)')
         print('\r')
 else:
     # Print error if no value entered for cable
     print('\r')
-    print('\r')
-    print('Error')
+    print('*** Error ***')
     print('Please enter a valid amount of fiber cable (1 - 1,000,000)')
     print('\r')
 # end program
