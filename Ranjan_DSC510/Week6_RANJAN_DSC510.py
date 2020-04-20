@@ -19,7 +19,6 @@ def main():
     printResults(temperatures)
 
 def acceptUserInputs(temperatures):
-    #temperatures = []
     temp = 0
     while temp != "q" or temp != "Q":
         while True:
@@ -35,13 +34,11 @@ def acceptUserInputs(temperatures):
                     if temp.upper() == "Q":
                         break
 
-                    print("Please check and enter the temperature!\n")
+                    print("Please check and enter a valid temperature!\n")
         # Break out of the loop, when user inpus "Q" or "q"
         if temp == "q" or temp == "Q":
             break
         temperatures.append(temp)
-
-    #return temperatures
 
 def printResults(temperatures):
     # Find min & max of the temperatures list#
