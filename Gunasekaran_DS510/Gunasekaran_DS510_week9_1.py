@@ -76,7 +76,7 @@ def main():
     # Adding the date value after the output file name
     outputfile_name = outputfile_name + "_" + datevalue.strftime("%d %B %Y") + ".txt"
     # Open the file in read mode
-    input_file = open("D:\Python\gettysburg.txt", "r")
+    input_file = open("gettysburg.txt", "r")
     # Create an empty dictionary
     word_dict = dict()
     # Loop through each line of the file
@@ -86,6 +86,8 @@ def main():
     # Write the length of the dict in the outputfile
     output_file = open(outputfile_name, "w")  # write mode
     output_file.write('Length of the dictionary :' + str(len(word_dict)) + "\n")
+
+
     # call the processfile method by passing dict, filename to print the words and length of dict
     process_file(word_dict, outputfile_name)
     # call the format print method to print the words and length of dict
