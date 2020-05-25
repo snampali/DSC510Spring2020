@@ -1,4 +1,4 @@
-# File :    Gunasekaran_DS510_week10_1.py
+# File :    Gunasekaran_DS510_week1_1.py
 # Name :    Ragunath Gunasekaran
 # Date :    05/24/2020
 # Course :  DSC-510 - Introduction to Programming
