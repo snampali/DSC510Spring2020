@@ -77,7 +77,7 @@ def format_print():
 
 def main():
     now = datetime.datetime.now()
-    print("Welcome to the RAGU's Shop")
+    print("Welcome to the RAGU's Shoping World!")
     print('Date : ' + now.strftime("%Y-%m-%d %H:%M:%S"))  # printing date & time
     print("------------------------------------------")
     # Calling Format Print method to print the Jokes
