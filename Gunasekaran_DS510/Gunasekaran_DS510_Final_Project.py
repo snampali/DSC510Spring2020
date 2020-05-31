@@ -101,6 +101,7 @@ def display_results(weathers, weatherData):
                                                                                                 , i['wind']['speed'],
                                                                                                 i['wind']['deg']
                                                                                                 ))
+        # Current Weather details
         elif (weatherData == "1"):
             print("Name of the Place : " + (weathers['name']))
             print(
@@ -131,7 +132,7 @@ def main():
     # try-except block
     try:
         now = datetime.datetime.now()
-        # Default Parameter Country as US and Units - Imperial
+        # Fetching Default Parameter Country as US and Units - Imperial from configuration file
         config = get_configvalues()
         unitsparameter = config.units
         countryparameter = config.country
@@ -185,7 +186,9 @@ def main():
                 else:
                     query = weatherdataoptionparameter + '?q=' + city + "," + countryparameter + "&" + "units=" + unitsparameter + "&" + "lang=" + Languageparameter + "&cnt=" + str(
                         countparameter)
+                # Calling get_weatherdata function to get the API response details as JSON
                 w_data = get_weatherdata(query, config);
+                # Calling display_results function to display all the details
                 display_results(w_data, str(inputweatherDataoption))
 
             # Exit Option
