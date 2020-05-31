@@ -46,10 +46,9 @@ def get_configvalues():
 
 
 # function to request for weather data
-def get_weatherdata(query):
+def get_weatherdata(query,config):
     # try-except block
     try:
-        config = get_configvalues()
         api_key = config.apikey
         base_url = config.baseurl
         # base_url = "http://api.openweathermap.org/data/2.5/"
@@ -76,7 +75,7 @@ def display_results(weathers, weatherData):
     # try-except block
     try:
         print("Here is the Weather details of the given City or Zip Code")
-        # print("Name of the Place : " + (weathers['name']))
+
         print("---------------------------------------------------------")
         print("{:<20} {:<15} {:<15} {:<15} {:<15} {:<15}{:<15} {:<15}{:<15}{:<15}".format('Date', 'Temp', 'Temp Min',
                                                                                           'Temp Max',
@@ -87,6 +86,7 @@ def display_results(weathers, weatherData):
             "--------------------------------------------------------------------------------------------------------------------------------------------------------")
         # Looping the weathers list of JSON objects to print the weather details for the selected Range
         if (weatherData == "2"):
+            print("Name of the Place : " + (weathers['city']['name']))
             for i in weathers['list']:
                 print(
                     "{:<20} {:<15} {:<15} {:<15} {:<15} {:<15}{:<15} {:<15}{:<15}{:<15}".format(i["dt_txt"],
@@ -102,6 +102,7 @@ def display_results(weathers, weatherData):
                                                                                                 i['wind']['deg']
                                                                                                 ))
         elif (weatherData == "1"):
+            print("Name of the Place : " + (weathers['name']))
             print(
                 "{:<20} {:<15} {:<15} {:<15} {:<15} {:<15}{:<15} {:<15}{:<15}{:<15}".format("now",
                                                                                             weathers['main']['temp'],
@@ -184,7 +185,7 @@ def main():
                 else:
                     query = weatherdataoptionparameter + '?q=' + city + "," + countryparameter + "&" + "units=" + unitsparameter + "&" + "lang=" + Languageparameter + "&cnt=" + str(
                         countparameter)
-                w_data = get_weatherdata(query);
+                w_data = get_weatherdata(query, config);
                 display_results(w_data, str(inputweatherDataoption))
 
             # Exit Option
